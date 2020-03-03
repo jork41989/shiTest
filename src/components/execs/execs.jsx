@@ -27,7 +27,7 @@ export default class Execs extends React.Component {
    let names
    if (keys.length > 1){
      names = keys.map(item => {
-     return <option value={item.emailAddress}>{item.firstName} {item.lastName}</option>
+     return <option value={item.id}>{item.firstName} {item.lastName}</option>
      })
    }
       return (

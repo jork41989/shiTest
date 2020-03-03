@@ -10,7 +10,7 @@ const App = () => (
   <div className={'mainDiv'}>
     <ExecContainer />
     <Switch>
-      <Route exact path="/accounts/:email" component={AccountsContainer} />
+      <Route exact path="/accounts/:id" component={AccountsContainer} />
     </Switch>
 
   </div>
