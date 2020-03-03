@@ -23,14 +23,25 @@ export default class Accounts extends React.Component {
     }
   }
 
-  render() {
+
+  getName(){
+    let execID = parseInt(this.props.match.params.id);
+    let accountExec = this.props.execs[execID]
+    if (accountExec){
+      return(
+        <div>Current Account Executive: {accountExec.firstName} {accountExec.lastName}</div>
+      )
+    }
+  }
+
+  getInfo(){
     let keys = Object.values(this.props.accounts)
     let info
-    console.log(keys)
     if (keys.length >= 1) {
       info = keys.map(item => {
+
         return (
-          <tr>
+          <tr key={item.id}>
             <td>{item.company}</td>
             <td>{item.phone}</td>
             <td>{item.streetAddress}</td>
@@ -42,25 +53,38 @@ export default class Accounts extends React.Component {
             <td>{item.accountExecutive}</td>
           </tr>
         )
+
       })
     } else {
 
     }
+    return info
+  }
+
+  render() {
+   
+   
+    
     return (
-      <table className="accountsTable">
-        <tr>
-          <th>Company</th>
-          <th>Phone Number</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Zip Code</th>
-          <th>Active Tickets</th>
-          <th>Active Contracts</th>
-          <th>Account Executive</th>
-        </tr>
-        {info}
-      </table>
+      <div>
+        {this.getName()}
+        <table className="accountsTable">
+          <tbody>
+            <tr>
+              <th>Company</th>
+              <th>Phone Number</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip Code</th>
+              <th>Active Tickets</th>
+              <th>Active Contracts</th>
+              <th>Account Executive</th>
+            </tr>
+            {this.getInfo()}
+          </tbody>
+        </table>
+      </div>
     )
   }
 
