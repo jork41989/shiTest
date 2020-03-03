@@ -29,7 +29,7 @@ export default class Accounts extends React.Component {
     let accountExec = this.props.execs[execID]
     if (accountExec){
       return(
-        <div>Current Account Executive: {accountExec.firstName} {accountExec.lastName}</div>
+        <div className={"curExec"}>Current Account Executive: {accountExec.firstName} {accountExec.lastName}</div>
       )
     }
   }
@@ -39,7 +39,7 @@ export default class Accounts extends React.Component {
     let accountExec = this.props.execs[execID]
     let info
     if (accountExec) {
-    debugger
+
       if (Object.values(this.props.accounts).length >= 1 && this.props.accounts[accountExec.emailAddress]){
     let keys = Object.values(this.props.accounts[accountExec.emailAddress])
    
