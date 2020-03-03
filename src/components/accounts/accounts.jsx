@@ -35,30 +35,39 @@ export default class Accounts extends React.Component {
   }
 
   getInfo(){
-    let keys = Object.values(this.props.accounts)
+    let execID = parseInt(this.props.match.params.id);
+    let accountExec = this.props.execs[execID]
     let info
+    if (accountExec) {
+    debugger
+      if (Object.values(this.props.accounts).length >= 1 && this.props.accounts[accountExec.emailAddress]){
+    let keys = Object.values(this.props.accounts[accountExec.emailAddress])
+   
     if (keys.length >= 1) {
-      info = keys.map(item => {
+        info = keys.map(item => {
 
-        return (
-          <tr key={item.id}>
-            <td>{item.company}</td>
-            <td>{item.phone}</td>
-            <td>{item.streetAddress}</td>
-            <td>{item.city}</td>
-            <td>{item.state}</td>
-            <td>{item.zipCode}</td>
-            <td>{item.activeTickets}</td>
-            <td>{item.activeContracts}</td>
-            <td>{item.accountExecutive}</td>
-          </tr>
-        )
+          return (
+            <tr key={item.id}>
+              <td>{item.company}</td>
+              <td>{item.phone}</td>
+              <td>{item.streetAddress}</td>
+              <td>{item.city}</td>
+              <td>{item.state}</td>
+              <td>{item.zipCode}</td>
+              <td>{item.activeTickets}</td>
+              <td>{item.activeContracts}</td>
+              <td>{item.accountExecutive}</td>
+            </tr>
+          )
 
-      })
-    } else {
-
+        })
+      } 
     }
-    return info
+  }
+
+    if (info){
+      return info
+    }
   }
 
   render() {

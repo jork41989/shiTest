@@ -13,7 +13,7 @@ const accountsReducer = (state = {}, action) => {
       accountsArray.forEach(element => {
         accountsObj[element.company] = element
       });
-      newState = merge({}, state, accountsArray)
+      newState = merge({}, state, {[accountsArray[0].accountExecutive]: accountsArray})
       return newState
     default:
       return state;
