@@ -1,4 +1,4 @@
-import {GET_ACCOUNTS} from '../actions/accounts_actions'
+import { GET_ACCOUNTS } from '../actions/accounts_actions'
 import merge from 'lodash/merge'
 
 const accountsReducer = (state = {}, action) => {

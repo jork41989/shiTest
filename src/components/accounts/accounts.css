@@ -1,0 +1,12 @@
+.accountsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.accountsTable, td, th {
+  border: 1px solid black;
+}
+
+th {
+  text-align: left;
+}

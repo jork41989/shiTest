@@ -27,13 +27,13 @@ export default class Execs extends React.Component {
    let names
    if (keys.length > 1){
      names = keys.map(item => {
-     return <option value={item.id}>{item.firstName} {item.lastName}</option>
+     return <option value={item.id} key={item.id}>{item.firstName} {item.lastName}</option>
      })
    }
       return (
         <div>
-          <select name="execsList" id="execs" onChange={this.emailGrabber}>
-            <option value="Null" selected disabled>Please select a Account Executive</option>
+          <select name="execsList" id="execs" defaultValue={'Null'} onChange={this.emailGrabber}>
+            <option value="Null" disabled>Please select a Account Executive</option>
             {names}
           </select>
         </div>
