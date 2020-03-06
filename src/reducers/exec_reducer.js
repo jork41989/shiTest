@@ -1,5 +1,4 @@
 import { RECEIVE_EXECS } from '../actions/account_execs_actions'
-import merge from 'lodash/merge'
 
 const execsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -13,7 +12,7 @@ const execsReducer = (state = {}, action) => {
       execArr.forEach(exec => {
         execsObj[exec.id] = exec
       });
-      newState = merge({}, state, execsObj)
+      newState = Object.assign({}, state, execsObj)
       return newState
     default:
       return state;

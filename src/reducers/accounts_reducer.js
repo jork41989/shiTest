@@ -1,5 +1,4 @@
 import { GET_ACCOUNTS } from '../actions/accounts_actions'
-import merge from 'lodash/merge'
 
 const accountsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -13,7 +12,7 @@ const accountsReducer = (state = {}, action) => {
       accountsArray.forEach(element => {
         accountsObj[element.company] = element
       });
-      newState = merge({}, state, {[accountsArray[0].accountExecutive]: accountsArray})
+      newState = Object.assign({}, state, {[accountsArray[0].accountExecutive]: accountsArray})
       return newState
     default:
       return state;
